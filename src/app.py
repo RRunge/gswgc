@@ -39,7 +39,7 @@ activities = {
         "max_participants": 30,
         "participants": ["john@mergington.edu", "olivia@mergington.edu"]
     },
-    # Sports related activities
+    # Sports activities
     "Soccer Team": {
         "description": "Join the school soccer team and compete in local leagues",
         "schedule": "Tuesdays and Thursdays, 4:00 PM - 5:30 PM",
@@ -53,30 +53,30 @@ activities = {
         "participants": ["liam@mergington.edu", "ava@mergington.edu"]
     },
     # Artistic activities
-    "Drama Club": {
-        "description": "Act, direct, and participate in school theater productions",
+    "Art Club": {
+        "description": "Explore painting, drawing, and other visual arts",
         "schedule": "Mondays, 3:30 PM - 5:00 PM",
-        "max_participants": 25,
-        "participants": ["noah@mergington.edu", "isabella@mergington.edu"]
+        "max_participants": 16,
+        "participants": ["ella@mergington.edu", "noah@mergington.edu"]
     },
-    "Art Workshop": {
-        "description": "Explore painting, drawing, and sculpture techniques",
-        "schedule": "Thursdays, 3:30 PM - 5:00 PM",
+    "Drama Society": {
+        "description": "Participate in theater productions and acting workshops",
+        "schedule": "Thursdays, 4:00 PM - 5:30 PM",
         "max_participants": 20,
-        "participants": ["amelia@mergington.edu", "benjamin@mergington.edu"]
+        "participants": ["amelia@mergington.edu", "jack@mergington.edu"]
     },
     # Intellectual activities
     "Math Olympiad": {
         "description": "Prepare for math competitions and solve challenging problems",
         "schedule": "Fridays, 2:00 PM - 3:30 PM",
-        "max_participants": 16,
-        "participants": ["charlotte@mergington.edu", "elijah@mergington.edu"]
+        "max_participants": 10,
+        "participants": ["ethan@mergington.edu", "isabella@mergington.edu"]
     },
-    "Debate Team": {
-        "description": "Develop public speaking and argumentation skills",
-        "schedule": "Wednesdays, 4:00 PM - 5:30 PM",
+    "Science Club": {
+        "description": "Conduct experiments and explore scientific concepts",
+        "schedule": "Wednesdays, 4:00 PM - 5:00 PM",
         "max_participants": 14,
-        "participants": ["jack@mergington.edu", "harper@mergington.edu"]
+        "participants": ["benjamin@mergington.edu", "charlotte@mergington.edu"]
     }
 }
 
@@ -94,6 +94,8 @@ def get_activities():
 @app.post("/activities/{activity_name}/signup")
 def signup_for_activity(activity_name: str, email: str):
     """Sign up a student for an activity"""
+
+    
     # Validate activity exists
     if activity_name not in activities:
         raise HTTPException(status_code=404, detail="Activity not found")
